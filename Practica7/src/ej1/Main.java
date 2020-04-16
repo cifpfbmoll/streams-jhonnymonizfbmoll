@@ -1,4 +1,6 @@
 package ej1;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,8 +10,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
-import java.*;
+
 
 public class Main {
 	 public static void main(String[] args) {
@@ -29,7 +32,9 @@ public class Main {
 				case 2:
 					lecturaEscrituraCaracter();
 					break;
-
+				case 3:
+					lecturaEscrituraBuffer();
+					break;
 				default:
 					break;
 				}
@@ -40,7 +45,7 @@ public class Main {
 	 public static void lecturaEscrituraByte() {
 
 		  int i;
-		  int posi=0;
+		  int posi=1;
 		  String inicio;
 		  String destino;
 		  String[] posicion = {"Titulo: ","Año: ","Director: ","Duracion: ","Sinopsis: ","Reparto: ","Sesion: "};
@@ -56,15 +61,18 @@ public class Main {
 		        	String text = "==========================";
 		        	String saltolinea = "\r\n";
 		        	String titulo = "Cartelera de CineFBMoll";
+		        	String primer = "Titulo: ";
 		        	byte[] titu = titulo.getBytes();
 		        	byte[] mybytes=text.getBytes();
 		        	byte[] salto=saltolinea.getBytes();
+		        	byte[] pri = primer.getBytes();
                 	fout.write(mybytes);
                 	fout.write(salto);
                 	fout.write(titu);
                 	fout.write(salto);
                 	fout.write(mybytes);
                 	fout.write(salto);
+                	fout.write(pri);
 		            do {
 		                i = fin.read();
 		                if (i != -1) {		
@@ -97,8 +105,7 @@ public class Main {
 
 	 public static void lecturaEscrituraCaracter() {
 		 int texto;
-		 int i=0;
-		  int posi=0;
+		 int i=1;
 		  String inicio;
 		  String destino;
 		  String[] posicion = {"Titulo: ","Año: ","Director: ","Duracion: ","Sinopsis: ","Reparto: ","Sesion: "};
@@ -119,9 +126,11 @@ public class Main {
 		  	  fout.write(saltolinea);
 		  	  fout.write(titulo);
 		  	  fout.write(saltolinea);
+		  	  fout.write("Titulo: ");
 			do {
 	                texto = fin.read();
 	                if (texto != -1) {
+	     
 	                	System.out.println(texto);
 	                    if (Character.toString((char) texto).equals("#") || Character.toString((char) texto).equals("{")) {
 	                    	if (Character.toString((char) texto).equals("{")) {
@@ -147,8 +156,59 @@ public class Main {
 	    }	  
 		  	
 		  	
-		 
-		
+		 public static void lecturaEscrituraBuffer(){
+			  String inicio;
+			  String destino;
+			  String[] posicion = {"Titulo: ","Año: ","Director: ","Duracion: ","Sinopsis: ","Reparto: ","Sesion: "};
+			  Scanner entradas=new Scanner(System.in);
+			  System.out.println("Direccion del archivo de entrada: ");
+			  inicio = entradas.nextLine();
+			  System.out.println("Direccion del archivo de destino: ");
+			  destino = entradas.nextLine();
+			  File entrada = new File(inicio);
+			  File salida = new File(destino);
+			  
+			        try (BufferedReader fin = new BufferedReader(new FileReader(entrada));
+			                BufferedWriter fout = new BufferedWriter(new FileWriter(salida))) {
+			        	boolean eof = false;
+			            String lineaLeida; 
+			            String[] peliculas; 
+			            String[] texto; 
+			            int i = 0; 
+			            fout.append(posicion[i]); 
+			            do {
+			                lineaLeida = fin.readLine(); 
+			                if (lineaLeida != null) {
+			                    peliculas = lineaLeida.split("\\{");
+			                    for (int j = 0; j < peliculas.length; j++) {
+			                        texto = peliculas[j].split("#");
+			                        for (int k = 0; k < texto.length; k++) {
+			                            fout.append(texto[k]);
+			                            fout.append(" ");
+			                            if (k < texto.length - 1) {
+			                                if (i == 3) {
+			                      
+			                                    fout.append("minutos");
+			                                }
+			                                fout.newLine();
+			                                fout.append(posicion[i = (i + 1) % 7]);
+			                            }
+			                        }
+			                        if (j < peliculas.length - 1) {
+			                            fout.newLine();
+			                            fout.newLine();
+			                            fout.append(posicion[i = (i + 1) % 7]);
+			                        }
+			                    }
+			                } else {
+			                    eof = true;
+			                }
+			            } while (!eof);
+			        }  catch (IOException ex) {
+			            System.out.println("Error de lectura/escritura");
+			        }
+			    }
+
 		 
 	}
 

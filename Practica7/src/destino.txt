@@ -1,26 +1,15 @@
-==========================
-Cartelera de CineFBMoll
+Titulo: The old man and the gun 
+A�o: 2019 
+Director: David Lowery 
+Duracion: 93 minutos
+Sinopsis: A lo largo de sus 80 años de vida, el ladrón de bancos Forrest Tucker ha logrado librarse 18 veces de ir a prisión. Ahora retirado, Tucker vive en un hogar de jubilados y ha encontrado en Jewel el amor de su vida. Pero cuando un día ve al detective John Hunt por televisión, el ex atracador siente la necesidad de dar un último golpe y demostrar que aún puede poner en jaque a la policía. 
+Reparto: Robert Reford, Danny Glover 
+Sesion: 21:00 
 
-The old man and the gun
-Titulo: 2019
-A�o: David Lowery
-Director: 93
-Duracion: A lo largo de sus 80 años de
-vida, el ladrón de bancos Forrest Tucker ha logrado librarse 18 veces de ir a
-prisión. Ahora retirado, Tucker vive en un hogar de jubilados y ha encontrado
-en Jewel el amor de su vida. Pero cuando un día ve al detective John Hunt por
-televisión, el ex atracador siente la necesidad de dar un último golpe y
-demostrar que aún puede poner en jaque a la policía.
-Sinopsis: Robert Reford, Danny
-Glover
-Reparto: 21:00
-Capitana Marvel
-Titulo: 2019
-A�o: Ana Boden
-Director: 128
-Duracion: La Tierra se encuentra
-atrapada en medio de una guerra galáctica entre dos razas alienígenas. Esto
-hará que Carol Danvers se convierta en una de las heroínas más poderosas del
-universo.
-Sinopsis: Jude Law, Samuel L.Jackson
-Reparto: 22:00
+Titulo: Capitana Marvel 
+A�o: 2019 
+Director: Ana Boden 
+Duracion: 128 minutos
+Sinopsis: La Tierra se encuentra atrapada en medio de una guerra galáctica entre dos razas alienígenas. Esto hará que Carol Danvers se convierta en una de las heroínas más poderosas del universo. 
+Reparto: Jude Law, Samuel L.Jackson 
+Sesion: 22:00 
